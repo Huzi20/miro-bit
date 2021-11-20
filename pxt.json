@@ -11,7 +11,6 @@
         "main.ts",
         "README.md",
         "main.py",
-        null
     ],
     "testFiles": [
         "test.ts"
