@@ -2,7 +2,11 @@ input.onButtonPressed(Button.A, function () {
     basic.showNumber(input.lightLevel())
 })
 input.onButtonPressed(Button.B, function () {
-    手动控制 = 1
+    if (手动控制 == 0) {
+        手动控制 = 1
+    } else {
+        手动控制 = 0
+    }
 })
 let 手动控制 = 0
 手动控制 = 0
@@ -21,6 +25,13 @@ basic.forever(function () {
             pins.digitalWritePin(DigitalPin.P2, 0)
         }
         if (input.lightLevel() < 40) {
+            basic.showLeds(`
+                . # # # .
+                . # # # .
+                . # # # .
+                . . . . .
+                . . # . .
+                `)
             basic.showLeds(`
                 . # # # .
                 . # # # .
@@ -65,10 +76,7 @@ basic.forever(function () {
             pins.digitalWritePin(DigitalPin.P2, 0)
             music.stopAllSounds()
         }
-    }
-})
-basic.forever(function () {
-    while (手动控制 == 1) {
+    } else {
         pins.digitalWritePin(DigitalPin.P2, 1)
         basic.clearScreen()
     }
