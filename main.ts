@@ -22,11 +22,11 @@ basic.forever(function () {
         }
         if (input.lightLevel() < 40) {
             basic.showLeds(`
+                . # # # .
+                . # # # .
+                . # # # .
                 . . . . .
-                . . . . .
-                . . . . .
-                . . . . .
-                . . . . .
+                . . # . .
                 `)
             music.playMelody("C D C D C D C D ", 500)
             pins.digitalWritePin(DigitalPin.P2, 1)
